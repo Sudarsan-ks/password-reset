@@ -8,4 +8,12 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("Email server not ready:", error);
+  } else {
+    console.log("Email server is ready to take messages", success);
+  }
+});
+
 module.exports = transporter;
