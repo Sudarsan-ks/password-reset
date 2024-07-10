@@ -7,7 +7,7 @@ const transporter = require("../email");
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
-  const { email, firstname, lastname, password } = req.body;
+  const { email, username, phonenumber, password } = req.body;
   try {
     const hasspassword = await bcrypt.hash(password, 10);
     const existUser = await User.find({ email: email });
@@ -16,8 +16,8 @@ router.post("/register", async (req, res) => {
     }
     const newUser = new User({
       email,
-      firstname,
-      lastname,
+      username,
+      phonenumber,
       password: hasspassword,
     });
     await newUser.save();
