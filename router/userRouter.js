@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
     if (!user || !passwordMatch) {
       res.status(404).json({ message: "Invalid credential" });
     }
-    res.status(200).json({ message: "Login successfully", token, user });
+    res.status(200).json({ message: "Login successfully", user });
   } catch (err) {
     res.status(400).json({ message: "Error while login" });
   }
