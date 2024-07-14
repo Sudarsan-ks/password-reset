@@ -10,12 +10,6 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 
-// const corsOptions = {
-//   origin: ['http://localhost:5173', 'https://main--jocular-griffin-b49ff1.netlify.app'],
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization']
-// };
-
 app.use(cors());
 
 app.use("/user", userRouter);
