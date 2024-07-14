@@ -51,7 +51,7 @@ router.post("/forgotPassword", async (req, res) => {
     const resetToken = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
       expiresIn: "1h",
     });
-    const link = `${process.env.CLIENT_URL}/resetPassword/${resetToken}`;
+    const link = `${process.env.CLIENT_URL_NETLIFY}/resetPassword/${resetToken}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
