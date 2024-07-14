@@ -10,7 +10,14 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 
-app.use(cors());
+const corsOptions = {
+  origin: [process.env.CLIENT_URL, process.env.CLIENT_URL_NETLIFY],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
 
 app.use("/user", userRouter);
 
